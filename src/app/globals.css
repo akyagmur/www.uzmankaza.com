@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  --color-navy-950: #050d1a;
+  --color-navy-900: #0a1a33;
+  --color-navy-800: #10264a;
+  --color-navy-700: #173461;
+  --color-navy-600: #214a85;
+  --color-navy-100: #e3eaf6;
+  --color-navy-50: #f1f5fb;
+
+  --color-gold-600: #a67c1c;
+  --color-gold-500: #c9a227;
+  --color-gold-400: #dcb94a;
+  --color-gold-100: #f8f0d4;
+
+  --color-cream-50: #fbfaf7;
+  --color-cream-100: #f5f2ea;
+  --color-cream-200: #ebe6d9;
+
+  --color-ink-900: #111827;
+  --color-ink-700: #334155;
+  --color-ink-500: #64748b;
+  --color-ink-300: #cbd5e1;
+
+  --shadow-soft: 0 1px 2px rgb(10 26 51 / 0.04), 0 8px 24px -12px rgb(10 26 51 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(10 26 51 / 0.06), 0 20px 40px -20px rgb(10 26 51 / 0.3);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-cream-50);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+}
+
+::selection {
+  background: var(--color-gold-100);
+  color: var(--color-navy-900);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Hero arka plan deseni: ince ızgara + radyal parıltı, görsel yüklemeden */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.bg-glow {
+  background-image:
+    radial-gradient(60% 50% at 80% 10%, rgb(201 162 39 / 0.22), transparent 70%),
+    radial-gradient(50% 60% at 10% 90%, rgb(33 74 133 / 0.5), transparent 70%);
+}
+
+/* Uzun form içerik tipografisi */
+.prose-legal {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-ink-700);
+}
+.prose-legal > * + * {
+  margin-top: 1.25em;
+}
+.prose-legal h2 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 1.25;
+  color: var(--color-navy-900);
+  margin-top: 2.25em;
+  letter-spacing: -0.01em;
+}
+.prose-legal h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-navy-900);
+  margin-top: 1.75em;
+}
+.prose-legal a {
+  color: var(--color-navy-600);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-gold-400);
+}
+.prose-legal a:hover {
+  color: var(--color-navy-900);
+}
+.prose-legal ul,
+.prose-legal ol {
+  padding-left: 1.4em;
+}
+.prose-legal ul {
+  list-style: disc;
+}
+.prose-legal ol {
+  list-style: decimal;
+}
+.prose-legal li + li {
+  margin-top: 0.5em;
+}
+.prose-legal li::marker {
+  color: var(--color-gold-600);
+  font-weight: 600;
+}
+.prose-legal strong {
+  color: var(--color-navy-900);
+  font-weight: 700;
+}
+.prose-legal table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.prose-legal th,
+.prose-legal td {
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--color-cream-200);
+  vertical-align: top;
+}
+.prose-legal th {
+  background: var(--color-navy-50);
+  color: var(--color-navy-900);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.prose-legal tbody tr:nth-child(even) td {
+  background: rgb(255 255 255 / 0.6);
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
